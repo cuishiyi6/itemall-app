@@ -1,23 +1,49 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
+    name: 'home',
     path: '/',
-    name: 'Home',
-    component: Home
+    component: () => import('../views/home/Home.vue'),
+    meta: {
+      title: '首页'
+    }
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    name: 'detail',
+    path: '/detail/:iid',
+    component: () => import('../views/home/Detail.vue'),
+    meta: {
+      title: '商品详情'
+    }
+  },
+  {
+    name: 'category',
+    path: '/category',
+    component: () => import('../views/category/Category.vue'),
+    meta: {
+      title: '分类'
+    }
+  },
+  {
+    name: 'cart',
+    path: '/cart',
+    component: () => import('../views/cart/Cart.vue'),
+    meta: {
+      title: '购物车'
+    }
+  },
+  {
+    name: 'profile',
+    path: '/profile',
+    component: () => import('../views/profile/Profile.vue'),
+    meta: {
+      title: '我的'
+    }
+  },
 ]
 
 const router = new VueRouter({
@@ -25,5 +51,8 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-
+router.beforeEach((to, from, next) => {
+  window.document.title = to.meta.title
+  next()
+})
 export default router
