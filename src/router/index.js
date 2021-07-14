@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import {queryToken} from '../util'
 
 Vue.use(VueRouter)
 
@@ -68,6 +69,16 @@ const router = new VueRouter({
   routes
 })
 router.beforeEach((to, from, next) => {
+
+if(to.meta.requireAuth){
+
+  if(!queryToken().token){
+    router.replace('/login')
+  }
+}
+
+
+
   window.document.title = to.meta.title
   next()
 })
