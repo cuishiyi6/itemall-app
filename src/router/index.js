@@ -44,6 +44,22 @@ const routes = [
       title: '我的'
     }
   },
+  {
+    name: 'register',
+    path: '/register',
+    component: () => import('../views/profile/Register.vue'),
+    meta: {
+      title: '注册'
+    }
+  },
+  {
+    name: 'login',
+    path: '/login',
+    component: () => import('../views/profile/Login.vue'),
+    meta: {
+      title: '登录'
+    }
+  },
 ]
 
 const router = new VueRouter({

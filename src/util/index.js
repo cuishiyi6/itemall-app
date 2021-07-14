@@ -1,3 +1,9 @@
+
+import { Toast } from 'vant'
+export * from './pattern'
+
+
+//防抖函数
 export const debounce = (func, wait) => {
     let timeout = null
     return function () {
@@ -8,4 +14,8 @@ export const debounce = (func, wait) => {
         }, wait)
     }
 
-}//防抖函数
+}
+
+export const toast = (message) => {
+	Toast({ message })
+}
