@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <router-view />
-    <tab-bar/>
+    <keep-alive >
+      <router-view v-if="$route.meta.keepAlive"/>
+    </keep-alive>
+     <router-view v-if="!$route.meta.keepAlive"/>
+    <tab-bar />
   </div>
 </template>
-
 <script>
-import TabBar from './components/tabbar/TabBar.vue'
+import TabBar from "./components/tabbar/TabBar.vue";
 export default {
   components: { TabBar },
 };
 </script>
-
 <style lang="less">
-@import url("//at.alicdn.com/t/font_1431323_y1dx70mhrl8.css");
-@import url("https://cdn.bootcdn.net/ajax/libs/reseter.css/1.2.0/reseter.min.css");
+@import "./assets/css/base.css";
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="category">
     <van-sticky>
-      <nav-bar class="nav-bar" style="transition:'0.5s'">
+      <nav-bar class="nav-bar" style="transition: '0.5s'">
         <i class="iconfont icon-saoma" slot="left"></i>
         <div slot="center" class="seach"><i class="iconfont icon-iconseach"></i>搜索</div>
         <i class="iconfont icon-msg" slot="right"></i>
