@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <van-sticky>
-      <nav-bar class="nav-bar" style="transition: '0.5s'">
+      <nav-bar class="nav-bar">
         <div slot="center">登录</div>
       </nav-bar>
     </van-sticky>
